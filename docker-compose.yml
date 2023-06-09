@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:15.2
+    environment:
+      - POSTGRES_DB=car-minder-db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - "5430:5430"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
