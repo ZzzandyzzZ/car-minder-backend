@@ -1,7 +1,8 @@
 import { Router } from "express";
-import UserController from "./user.controller";
 
-class UserRouter {
+import { UserController } from "@user/infraestructure";
+
+export class UserRouter {
   private userController;
   private router;
   constructor(userController: UserController) {
@@ -13,8 +14,7 @@ class UserRouter {
     this.router.get("/", this.userController.getUsers.bind(this.userController));
   }
   public getRouter(): Router {
+    console.log("Creando router");
     return this.router;
   }
 }
-
-export default UserRouter;

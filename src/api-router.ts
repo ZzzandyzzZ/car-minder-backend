@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { userRouter } from "./modules/user/dependencies";
+
+import { userRouter } from "@user/dependencies";
 
 const apiRouter = Router();
 

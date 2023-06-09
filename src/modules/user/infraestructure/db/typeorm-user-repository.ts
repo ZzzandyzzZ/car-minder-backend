@@ -1,20 +1,21 @@
 import { Repository } from "typeorm";
-import { AppDataSource } from "../../../db";
-import User from "../domain/user";
-import { UserRepository } from "../domain/user.repository";
 
-class TypeORMUserRepository implements UserRepository {
+import { User, UserRepository } from "@user/domain";
+import { UserEntity } from "./user-entity";
+import { AppDataSource } from "db";
+
+export class TypeORMUserRepository implements UserRepository {
   private userRepository: Repository<User>;
 
   constructor() {
-    this.userRepository = AppDataSource.getRepository(User);
+    this.userRepository = AppDataSource.getRepository(UserEntity);
   }
 
   async getById(id: string): Promise<User | null> {
     return this.userRepository.findOneBy({ id: parseInt(id) });
   }
 
-  async getAll(): Promise<User[]> {
+  getAll(): Promise<User[]> {
     return this.userRepository.find();
   }
 
@@ -31,5 +32,3 @@ class TypeORMUserRepository implements UserRepository {
     return result.affected || 0;
   }
 }
-
-export default TypeORMUserRepository;

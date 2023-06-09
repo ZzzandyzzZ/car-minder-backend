@@ -1,6 +1,6 @@
 import { app } from "./app";
 import { AppDataSource } from "./db";
-import { PORT } from "./env_vars";
+import { PORT } from "./env-vars";
 
 const main = async () => {
   try {

@@ -1,17 +1,18 @@
-import { Entity, PrimaryGeneratedColumn, Column, Unique } from "typeorm";
-import User from "../domain/user";
+import { Entity, PrimaryGeneratedColumn, Column, Unique, PrimaryColumn } from "typeorm";
 
-@Entity()
+import { User } from "@user/domain";
+
+@Entity("user")
 @Unique(["dni"])
 @Unique(["email"])
-class UserEntity implements User {
+export class UserEntity implements User {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   createdAt: Date;
 
-  @Column()
+  @PrimaryColumn()
   dni: string;
 
   @Column()
@@ -23,17 +24,15 @@ class UserEntity implements User {
   @Column()
   lastname: string;
 
-  @Column()
+  @Column({ nullable: true })
   middlename: string;
 
   @Column()
   phone: string;
 
-  @Column()
+  @Column({ nullable: true })
   secondLastname: string;
 
   @Column()
   token: string;
 }
-
-export default UserEntity;
