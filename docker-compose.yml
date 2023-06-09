@@ -7,7 +7,11 @@ services:
       - POSTGRES_DB=car-minder-db
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=123456
+    network_mode: host
     ports:
       - "5430:5430"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - "./postgres_data:/var/lib/postgresql/data"
+volumes:
+  postgres_data:
+    driver: local
