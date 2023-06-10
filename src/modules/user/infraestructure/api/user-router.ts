@@ -14,7 +14,6 @@ export class UserRouter {
     this.router.get("/", this.userController.getUsers.bind(this.userController));
   }
   public getRouter(): Router {
-    console.log("Creando router");
     return this.router;
   }
 }
