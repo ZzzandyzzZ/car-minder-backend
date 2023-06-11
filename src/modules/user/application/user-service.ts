@@ -9,8 +9,8 @@ export class UserService {
   async getUsers(): Promise<UserShow[]> {
     const users = await this.userRepository.getAll();
     return users.map((userEntity) => {
-      const { id, firstname, dni }: UserShow = userEntity;
-      return { id, firstname, dni };
+      const { firstname, dni }: UserShow = userEntity;
+      return { firstname, dni };
     });
   }
 }
