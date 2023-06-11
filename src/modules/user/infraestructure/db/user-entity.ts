@@ -1,38 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column, Unique, PrimaryColumn } from "typeorm";
-
-import { User } from "@user/domain";
+import { Entity, Column, PrimaryColumn } from "typeorm";
 
 @Entity("user")
-@Unique(["dni"])
-@Unique(["email"])
 export class UserEntity implements User {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  createdAt: Date;
-
   @PrimaryColumn()
   dni: string;
-
   @Column()
-  email: string;
-
+  createdAt: Date;
   @Column()
-  firstname: string;
-
+  role: Role;
   @Column()
-  lastname: string;
-
-  @Column({ nullable: true })
-  middlename: string;
-
+  contactInfo: ContactInfo;
   @Column()
-  phone: string;
-
-  @Column({ nullable: true })
-  secondLastname: string;
-
+  loginInfo: LoginInfo;
   @Column()
-  token: string;
+  personalInfo: PersonalInfo;
 }
