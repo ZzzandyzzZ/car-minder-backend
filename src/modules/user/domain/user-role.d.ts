@@ -1,7 +1,7 @@
 interface Role {
   id: number;
-  name: string;
-  description: string;
   createdAt: Date;
+  description: string;
+  name: string;
   updatedAt: Date;
 }
