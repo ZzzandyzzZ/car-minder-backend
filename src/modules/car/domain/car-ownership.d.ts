@@ -1,4 +1,4 @@
-interface CarOwnerShip {
+interface CarOwnership {
   id: number;
   car: Car;
   createdAt: Date;
