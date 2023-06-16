@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { CarEntity } from "@car/infraestructure/db";
 
 @Entity()
 export class CarColorEntity implements CarColor {
@@ -13,4 +14,7 @@ export class CarColorEntity implements CarColor {
 
   @Column()
   updatedAt: Date;
+
+  @OneToMany(() => CarEntity, (car: Car) => car.color)
+  cars: Car[];
 }

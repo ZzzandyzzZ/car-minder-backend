@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { CarModelEntity } from "@car/infraestructure/db";
 
 @Entity()
 export class CarBrandEntity implements CarBrand {
@@ -6,10 +7,13 @@ export class CarBrandEntity implements CarBrand {
   id: number;
 
   @Column()
-  name: string;
+  createdAt: Date;
+
+  @OneToMany(() => CarModelEntity, (model: CarModel) => model.brand)
+  models: CarModel[];
 
   @Column()
-  createdAt: Date;
+  name: string;
 
   @Column()
   updatedAt: Date;

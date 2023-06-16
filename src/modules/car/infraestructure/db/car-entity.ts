@@ -1,18 +1,22 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { CarColorEntity, CarModelEntity } from "@car/infraestructure/db";
 
 @Entity()
 export class CarEntity implements Car {
   @PrimaryColumn()
   licensePlate: number;
 
-  @Column()
+  @ManyToOne(() => CarColorEntity, (color: CarColor) => color.cars)
   color: CarColor;
 
-  @Column()
+  @CreateDateColumn()
   createdAt: Date;
 
-  @Column()
+  @ManyToOne(() => CarModelEntity, (model: CarModel) => model.cars)
   model: CarModel;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 
   @Column()
   year: number;
