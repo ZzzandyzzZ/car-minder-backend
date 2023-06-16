@@ -1,6 +1,7 @@
 interface CarBrand {
   id: number;
-  name: string;
   createdAt: Date;
+  models: CarModel[];
+  name: string;
   updatedAt: Date;
 }

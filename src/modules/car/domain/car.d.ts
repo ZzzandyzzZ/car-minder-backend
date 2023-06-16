@@ -3,5 +3,6 @@ interface Car {
   color: CarColor;
   createdAt: Date;
   model: CarModel;
+  updatedAt: Date;
   year: number;
 }
