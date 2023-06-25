@@ -1,8 +1,5 @@
-interface CarModel {
-  id: number;
-  brand: CarBrand;
-  cars: Car[];
-  createdAt: Date;
-  name: string;
-  updatedAt: Date;
+interface CarModel extends BaseModel {
+  readonly brand: CarBrand;
+  readonly cars: Car[];
+  readonly name: string;
 }

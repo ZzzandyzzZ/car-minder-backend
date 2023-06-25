@@ -1,7 +1,4 @@
-interface CarColor {
-  id: number;
-  cars: Car[];
-  createdAt: Date;
-  name: string;
-  updatedAt: Date;
+interface CarColor extends BaseModel {
+  readonly cars: Car[];
+  readonly name: string;
 }

@@ -1,8 +1,6 @@
-interface Car {
-  licensePlate: number;
-  color: CarColor;
-  createdAt: Date;
-  model: CarModel;
-  updatedAt: Date;
-  year: number;
+interface Car extends BaseModel {
+  readonly color: CarColor;
+  readonly licensePlate: number;
+  readonly model: CarModel;
+  readonly year: number;
 }

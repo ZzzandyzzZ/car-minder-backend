@@ -1,8 +1,6 @@
-interface CarOwnership {
-  id: number;
-  car: Car;
-  createdAt: Date;
-  customer: User;
-  endDate: Date;
-  startDate: Date;
+interface CarOwnership extends BaseModel {
+  readonly car: Car;
+  readonly customer: User;
+  readonly endDate: Date;
+  readonly startDate: Date;
 }
