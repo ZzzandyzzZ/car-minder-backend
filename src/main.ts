@@ -6,6 +6,8 @@ const main = async () => {
   try {
     await AppDataSource.initialize();
     console.log("Data Source has been initialized!");
+    // console.log("Running migrations");
+    // await AppDataSource.runMigrations();
     await app.listen(PORT);
     console.log(`Server listening on port ${PORT}`);
   } catch (error) {
