@@ -1,6 +1,3 @@
-import { UserShow } from "@user/domain";
-import { UserRepository } from "../domain/user-repository";
-
 export class UserService {
   private userRepository: UserRepository;
   constructor(userRepository: UserRepository) {
@@ -9,8 +6,8 @@ export class UserService {
   async getUsers(): Promise<UserShow[]> {
     const users = await this.userRepository.getAll();
     return users.map((userEntity) => {
-      const { firstname, dni }: UserShow = userEntity;
-      return { firstname, dni };
+      const { personalInfo, dni } = userEntity;
+      return { personalInfo, dni };
     });
   }
 }

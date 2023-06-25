@@ -7,4 +7,4 @@ interface User {
   personalInfo: PersonalInfo;
 }
 
-type UserShow = Pick<User, "firstname" | "dni">;
+type UserShow = Pick<User, "personalInfo" | "dni">;
