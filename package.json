@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc && tsc-alias",
     "start": "node dist/main.js",
-    "run:migrations": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d src/db/index.ts",
+    "run:migrations": "ts-node --files -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d src/db/data-source.ts",
     "dev": "ts-node-dev --files -r tsconfig-paths/register src/main.ts"
   },
   "dependencies": {
