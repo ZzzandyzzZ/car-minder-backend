@@ -1,22 +1,25 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryColumn,
+  UpdateDateColumn,
+} from "typeorm";
 import { CarColorEntity, CarModelEntity } from "@car/infraestructure/db";
+import { BaseEntity } from "@shared/infraestructure/db";
 
 @Entity()
-export class CarEntity implements Car {
-  @PrimaryColumn()
-  licensePlate: number;
-
+export class CarEntity extends BaseEntity implements Car {
   @ManyToOne(() => CarColorEntity, (color: CarColor) => color.cars)
   color: CarColor;
 
-  @CreateDateColumn()
-  createdAt: Date;
+  @PrimaryColumn()
+  licensePlate: number;
 
   @ManyToOne(() => CarModelEntity, (model: CarModel) => model.cars)
   model: CarModel;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
 
   @Column()
   year: number;

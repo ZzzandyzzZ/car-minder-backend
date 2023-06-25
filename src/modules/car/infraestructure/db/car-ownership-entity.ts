@@ -1,15 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { BaseEntity } from "@shared/infraestructure/db";
+import { Entity, Column } from "typeorm";
 
 @Entity()
-export class CarOwnershipEntity implements CarOwnership {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class CarOwnershipEntity extends BaseEntity implements CarOwnership {
   @Column()
   car: Car;
-
-  @Column()
-  createdAt: Date;
 
   @Column()
   customer: User;

@@ -1,20 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, Column, OneToMany } from "typeorm";
 import { CarEntity } from "@car/infraestructure/db";
+import { BaseEntity } from "@shared/infraestructure/db";
 
 @Entity()
-export class CarColorEntity implements CarColor {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
-  createdAt: Date;
+export class CarColorEntity extends BaseEntity implements CarColor {
+  @OneToMany(() => CarEntity, (car: Car) => car.color)
+  cars: Car[];
 
   @Column()
   name: string;
-
-  @Column()
-  updatedAt: Date;
-
-  @OneToMany(() => CarEntity, (car: Car) => car.color)
-  cars: Car[];
 }
