@@ -2,7 +2,7 @@ import { CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, Upd
 
 @Entity()
 export class BaseModelEntity implements BaseModel {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn("uuid")
   id: number;
 
   @CreateDateColumn()
