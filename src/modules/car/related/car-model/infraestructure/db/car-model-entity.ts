@@ -1,16 +1,7 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  // OneToMany,
-  ManyToOne,
-  CreateDateColumn,
-  UpdateDateColumn,
-  DeleteDateColumn,
-  OneToMany,
-} from "typeorm";
-import { CarBrandEntity, CarEntity } from "@car/infraestructure/db";
+import { Entity, Column, ManyToOne, OneToMany } from "typeorm";
+import { CarEntity } from "@car/infraestructure/db";
 import { BaseModelEntity } from "@shared/infraestructure/db/base-model-entity";
+import { CarBrandEntity } from "@car-brand/infraestructure/db";
 
 @Entity()
 export class CarModelEntity extends BaseModelEntity implements CarModel {

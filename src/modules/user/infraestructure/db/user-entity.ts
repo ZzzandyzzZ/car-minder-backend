@@ -1,12 +1,10 @@
+import { BaseModelEntity } from "@shared/infraestructure/db";
 import { Entity, Column, PrimaryColumn } from "typeorm";
 
 @Entity("user")
-export class UserEntity implements User {
+export class UserEntity extends BaseModelEntity implements User {
   @PrimaryColumn()
   dni: string;
-
-  @Column()
-  createdAt: Date;
 
   @Column()
   role: Role;

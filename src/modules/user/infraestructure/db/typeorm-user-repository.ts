@@ -1,6 +1,5 @@
 import { Repository } from "typeorm";
 
-import { User, UserRepository } from "@user/domain";
 import { UserEntity } from "./user-entity";
 import { AppDataSource } from "db";
 
