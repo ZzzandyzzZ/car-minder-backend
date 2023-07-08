@@ -4,7 +4,8 @@ export class CarService {
     this.carRepository = carRepository;
   }
   async getCars(): Promise<Car[]> {
-    const cars = this.carRepository.getAll();
+    // Validation
+    const cars = await this.carRepository.getAll();
     return cars;
   }
 }
