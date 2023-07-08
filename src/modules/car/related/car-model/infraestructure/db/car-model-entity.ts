@@ -10,10 +10,10 @@ import {
   OneToMany,
 } from "typeorm";
 import { CarBrandEntity, CarEntity } from "@car/infraestructure/db";
-import { BaseEntity } from "modules/shared/infraestructure/db/base-entity";
+import { BaseModelEntity } from "@shared/infraestructure/db/base-model-entity";
 
 @Entity()
-export class CarModelEntity extends BaseEntity implements CarModel {
+export class CarModelEntity extends BaseModelEntity implements CarModel {
   @ManyToOne(() => CarBrandEntity, (brand: CarBrand) => brand.models, { cascade: ["insert"] })
   brand: CarBrand;
 

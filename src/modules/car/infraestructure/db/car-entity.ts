@@ -8,10 +8,10 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 import { CarColorEntity, CarModelEntity } from "@car/infraestructure/db";
-import { BaseEntity } from "@shared/infraestructure/db";
+import { BaseModelEntity } from "@shared/infraestructure/db";
 
 @Entity()
-export class CarEntity extends BaseEntity implements Car {
+export class CarEntity extends BaseModelEntity implements Car {
   @ManyToOne(() => CarColorEntity, (color: CarColor) => color.cars)
   color: CarColor;
 
