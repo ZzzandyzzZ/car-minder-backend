@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, ManyToOne } from "typeorm";
 
 import { BaseModelEntity } from "@shared/infraestructure/db";
 import { CarColorEntity } from "./car-color-entity";
@@ -9,8 +9,8 @@ export class CarEntity extends BaseModelEntity implements Car {
   @ManyToOne(() => CarColorEntity, (color: CarColor) => color.cars)
   color: CarColor;
 
-  @PrimaryColumn()
-  licensePlate: number;
+  @Column({ unique: true })
+  licensePlate: string;
 
   @ManyToOne(() => CarModelEntity, (model: CarModel) => model.cars)
   model: CarModel;
