@@ -26,8 +26,12 @@ export class TypeORMCarRepository implements CarRepository {
     return this.carRepository.findOneBy({ id });
   }
 
-  getByLPlate(licensePlate: number): Promise<Car | null> {
-    return this.carRepository.findOneBy({ licensePlate });
+  getByLP(licensePlate: string): Promise<Car | null> {
+    return this.carRepository.findOne({
+      where: { licensePlate },
+      relations: ["model", "color"],
+      select: { model: { name: true }, color: { name: true } },
+    });
   }
 
   update(car: Car): Promise<Car> {
