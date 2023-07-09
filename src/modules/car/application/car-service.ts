@@ -3,7 +3,7 @@ export class CarService {
   constructor(carRepository: CarRepository) {
     this.carRepository = carRepository;
   }
-  async getCars(): Promise<Car[]> {
+  async getAll(): Promise<Car[]> {
     // Validation
     const cars = await this.carRepository.getAll();
     return cars;

@@ -10,8 +10,8 @@ export class CarRouter {
     this.setupRoutes();
   }
   private setupRoutes(): void {
-    this.router.get("/", this.carController.getCars.bind(this.carController));
-    this.router.get("/:licensePlate", this.carController.getCarBy.bind(this.carController));
+    this.router.get("/", this.carController.getAll.bind(this.carController));
+    this.router.get("/:licensePlate", this.carController.getByLP.bind(this.carController));
   }
   public getRouter(): Router {
     return this.router;
