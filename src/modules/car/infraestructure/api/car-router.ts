@@ -11,6 +11,7 @@ export class CarRouter {
   }
   private setupRoutes(): void {
     this.router.get("/", this.carController.getCars.bind(this.carController));
+    this.router.get("/:licensePlate", this.carController.getCarBy.bind(this.carController));
   }
   public getRouter(): Router {
     return this.router;
