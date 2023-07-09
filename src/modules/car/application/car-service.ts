@@ -8,4 +8,8 @@ export class CarService {
     const cars = await this.carRepository.getAll();
     return cars;
   }
+  async getByLP(licensePlate: string): Promise<Car | null> {
+    const car = await this.carRepository.getByLP(licensePlate);
+    return car;
+  }
 }
