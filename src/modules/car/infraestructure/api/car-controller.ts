@@ -24,4 +24,18 @@ export class CarController {
       car,
     });
   }
+  async create(req: Request, res: Response): Promise<void> {
+    try {
+      const car = await this.carService.create(req.body);
+      res.json({
+        message: "Car created",
+        car,
+      });
+    } catch (error) {
+      res.status(400).json({
+        message: "Can not create car",
+        error,
+      });
+    }
+  }
 }
