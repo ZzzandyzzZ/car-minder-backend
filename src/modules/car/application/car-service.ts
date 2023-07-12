@@ -12,4 +12,7 @@ export class CarService {
     const car = await this.carRepository.getByLP(licensePlate);
     return car;
   }
+  create(carData: Car): Promise<Car> {
+    return this.carRepository.create(carData);
+  }
 }
