@@ -3,8 +3,10 @@ export class CarBrandService {
   constructor(carBrandRepository: CarBrandRepository) {
     this.carBrandRepository = carBrandRepository;
   }
-  async getCarBrands(): Promise<CarBrand[]> {
-    const carBrands = await this.carBrandRepository.getAll();
-    return carBrands;
+  getAll(): Promise<CarBrand[]> {
+    return this.carBrandRepository.getAll();
+  }
+  getById(id: string): Promise<CarBrand | null> {
+    return this.carBrandRepository.getById(id as UUID);
   }
 }
