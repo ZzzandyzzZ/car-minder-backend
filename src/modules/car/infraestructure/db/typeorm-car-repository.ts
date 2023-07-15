@@ -4,31 +4,31 @@ import { AppDataSource } from "db";
 import { CarEntity } from "./car-entity";
 
 export class TypeORMCarRepository implements CarRepository {
-  private carRepository: Repository<Car>;
+  private repository: Repository<Car>;
 
   constructor() {
-    this.carRepository = AppDataSource.getRepository(CarEntity);
+    this.repository = AppDataSource.getRepository(CarEntity);
   }
 
   create(car: Car): Promise<Car> {
-    return this.carRepository.save(car);
+    return this.repository.save(car);
   }
 
   async delete(id: UUID): Promise<number> {
-    const result = await this.carRepository.delete(id);
+    const result = await this.repository.delete(id);
     return result.affected || 0;
   }
 
   getAll(): Promise<Array<Car> | []> {
-    return this.carRepository.find({ loadRelationIds: true });
+    return this.repository.find({ loadRelationIds: true });
   }
 
   getById(id: UUID): Promise<Car | null> {
-    return this.carRepository.findOneBy({ id });
+    return this.repository.findOneBy({ id });
   }
 
   getByLP(licensePlate: string): Promise<Car | null> {
-    return this.carRepository.findOne({
+    return this.repository.findOne({
       where: { licensePlate },
       relations: ["model", "color"],
       select: { model: { name: true }, color: { name: true } },
@@ -36,6 +36,6 @@ export class TypeORMCarRepository implements CarRepository {
   }
 
   update(car: Car): Promise<Car> {
-    return this.carRepository.save(car);
+    return this.repository.save(car);
   }
 }
