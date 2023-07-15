@@ -1,6 +1,5 @@
 interface User extends BaseModel {
   dni: string;
-  createdAt: Date;
   role: Role;
   contactInfo: ContactInfo;
   loginInfo: LoginInfo;

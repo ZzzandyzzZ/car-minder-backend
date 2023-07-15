@@ -1,4 +1,3 @@
-interface LoginInfo {
-  id: number;
+interface LoginInfo extends BaseModel {
   GMtoken: string;
 }

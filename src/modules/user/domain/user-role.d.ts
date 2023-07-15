@@ -1,7 +1,4 @@
-interface Role {
-  id: number;
-  createdAt: Date;
+interface Role extends BaseModel {
   description: string;
   name: string;
-  updatedAt: Date;
 }

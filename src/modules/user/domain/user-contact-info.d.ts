@@ -1,9 +1,6 @@
-interface ContactInfo {
-  id: number;
+interface ContactInfo extends BaseModel {
   address: string;
   city: string;
-  createdAt: Date;
   email: string;
   phone: string;
-  updatedAt: Date;
 }
