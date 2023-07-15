@@ -1,20 +1,25 @@
 import { Router } from "express";
 import { CarController } from "./car-controller";
+import { carBrandRouter } from "@car-brand/dependencies";
 
 export class CarRouter {
-  private carController: CarController;
+  private controller: CarController;
   private router: Router;
-  constructor(carController: CarController) {
-    this.carController = carController;
+  constructor(controller: CarController) {
+    this.controller = controller;
     this.router = Router();
     this.setupRoutes();
   }
   private setupRoutes(): void {
-    this.router.get("/", this.carController.getAll.bind(this.carController));
-    this.router.get("/:licensePlate", this.carController.getByLP.bind(this.carController));
-    this.router.post("/", this.carController.create.bind(this.carController));
+    this.router.use("/brands", carBrandRouter);
+
+    this.router.get("/", this.controller.getAll.bind(this.controller));
+    this.router.get("/:licensePlate", this.controller.getByLP.bind(this.controller));
+    this.router.post("/", this.controller.create.bind(this.controller));
+
+    // this.router.use("/models");
   }
-  public getRouter(): Router {
+  public getRouter() {
     return this.router;
   }
 }
