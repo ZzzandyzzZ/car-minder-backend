@@ -1,5 +1,5 @@
 interface BaseModel {
-  id: number;
+  id: UUID;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date;

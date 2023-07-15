@@ -1,5 +1,6 @@
-import { AppDataSource } from "db";
 import { Repository } from "typeorm";
+
+import { AppDataSource } from "db";
 import { CarEntity } from "./car-entity";
 
 export class TypeORMCarRepository implements CarRepository {
@@ -13,7 +14,7 @@ export class TypeORMCarRepository implements CarRepository {
     return this.carRepository.save(car);
   }
 
-  async delete(id: number): Promise<number> {
+  async delete(id: UUID): Promise<number> {
     const result = await this.carRepository.delete(id);
     return result.affected || 0;
   }
@@ -22,7 +23,7 @@ export class TypeORMCarRepository implements CarRepository {
     return this.carRepository.find({ loadRelationIds: true });
   }
 
-  getById(id: number): Promise<Car | null> {
+  getById(id: UUID): Promise<Car | null> {
     return this.carRepository.findOneBy({ id });
   }
 

@@ -10,8 +10,8 @@ export class TypeORMUserRepository implements UserRepository {
     this.userRepository = AppDataSource.getRepository(UserEntity);
   }
 
-  async getById(id: string): Promise<User | null> {
-    return this.userRepository.findOneBy({ id: parseInt(id) });
+  async getById(id: UUID): Promise<User | null> {
+    return this.userRepository.findOneBy({ id });
   }
 
   getAll(): Promise<User[]> {

@@ -3,7 +3,7 @@ import { CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, Upd
 @Entity()
 export class BaseModelEntity implements BaseModel {
   @PrimaryGeneratedColumn("uuid")
-  id: number;
+  id: UUID;
 
   @CreateDateColumn()
   createdAt: Date;
