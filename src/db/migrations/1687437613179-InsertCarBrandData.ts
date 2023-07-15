@@ -1,8 +1,8 @@
-import { CarBrandEntity } from "@car/related/car-brand/infraestructure/db";
-import { CarModelEntity } from "@car/related/car-model/infraestructure/db";
+import { MigrationInterface, QueryRunner } from "typeorm";
 import * as fs from "fs";
 
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { CarBrandEntity } from "@car/related/car-brand/infraestructure/db";
+import { CarModelEntity } from "@car/related/car-model/infraestructure/db";
 
 export class InsertCarBrandData1687437613179 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
