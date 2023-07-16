@@ -26,8 +26,8 @@ export class TypeORMUserRepository implements UserRepository {
     return this.userRepository.save(user);
   }
 
-  async delete(user: User): Promise<number> {
-    const result = await this.userRepository.delete(user.id);
+  async delete(id: UUID): Promise<number> {
+    const result = await this.userRepository.delete(id);
     return result.affected || 0;
   }
 }
