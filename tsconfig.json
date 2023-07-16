@@ -30,10 +30,11 @@
     // "moduleResolution": "node10",                     /* Specify how TypeScript looks up a file from a given module specifier. */
     "baseUrl": "./src",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
-      "@car/*": ["modules/car/*"],
       "@car-brand/*": ["modules/car/related/car-brand/*"],
       "@car-model/*": ["modules/car/related/car-model/*"],
+      "@car/*": ["modules/car/*"],
       "@db": ["db.ts"],
+      "@env-vars": ["env-vars.ts"],
       "@shared/*": ["modules/shared/*"],
       "@user/*": ["modules/user/*"]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
