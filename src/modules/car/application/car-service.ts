@@ -1,18 +1,19 @@
 export class CarService {
-  private carRepository: CarRepository;
-  constructor(carRepository: CarRepository) {
-    this.carRepository = carRepository;
+  private repository: CarRepository;
+
+  constructor(repository: CarRepository) {
+    this.repository = repository;
   }
-  async getAll(): Promise<Car[]> {
-    // Validation
-    const cars = await this.carRepository.getAll();
-    return cars;
+
+  getAll(): Promise<Car[]> {
+    return this.repository.getAll();
   }
-  async getByLP(licensePlate: string): Promise<Car | null> {
-    const car = await this.carRepository.getByLP(licensePlate);
-    return car;
+
+  getByLP(licensePlate: string): Promise<Car | null> {
+    return this.repository.getByLP(licensePlate);
   }
+
   create(carData: Car): Promise<Car> {
-    return this.carRepository.create(carData);
+    return this.repository.create(carData);
   }
 }
