@@ -9,7 +9,7 @@ export class CarModelService {
     return this.repository.getAll;
   }
 
-  getById(id: UUID) {
-    return this.repository.getById(id);
+  getById(id: string) {
+    return this.repository.getById(id as UUID);
   }
 }
