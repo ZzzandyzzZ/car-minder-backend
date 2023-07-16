@@ -1,5 +1,5 @@
 export class CarModelService {
-  private repository: CarModelRepository;
+  private repository;
 
   constructor(repository: CarModelRepository) {
     this.repository = repository;

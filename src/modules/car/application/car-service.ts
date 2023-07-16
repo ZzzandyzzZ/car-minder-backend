@@ -1,19 +1,19 @@
 export class CarService {
-  private repository: CarRepository;
+  private repository;
 
   constructor(repository: CarRepository) {
     this.repository = repository;
   }
 
-  getAll(): Promise<Car[]> {
+  getAll() {
     return this.repository.getAll();
   }
 
-  getByLP(licensePlate: string): Promise<Car | null> {
+  getByLP(licensePlate: string) {
     return this.repository.getByLP(licensePlate);
   }
 
-  create(carData: Car): Promise<Car> {
+  create(carData: Car) {
     return this.repository.create(carData);
   }
 }
