@@ -1,8 +1,7 @@
+import { DataSource } from "typeorm";
 // import { join } from "path";
 
-import { DataSource } from "typeorm";
-
-import { DATABASE_URL, NODE_ENV } from "../env-vars";
+import { DATABASE_URL, NODE_ENV } from "@env-vars";
 import { CarColorEntity, CarEntity } from "@car/infraestructure/db";
 import { SnakeNamingStrategy } from "./snake-naming-strategy";
 import { InsertCarBrandData1687437613179 } from "./migrations/1687437613179-InsertCarBrandData";
