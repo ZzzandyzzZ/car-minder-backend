@@ -1,5 +1,6 @@
-import { BaseModelEntity } from "@shared/infraestructure/db";
 import { Entity, Column } from "typeorm";
+
+import { BaseModelEntity } from "@shared/infraestructure/db";
 
 @Entity()
 export class CarOwnershipEntity extends BaseModelEntity implements CarOwnership {

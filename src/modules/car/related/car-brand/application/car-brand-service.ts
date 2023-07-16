@@ -1,12 +1,15 @@
 export class CarBrandService {
-  private carBrandRepository: CarBrandRepository;
-  constructor(carBrandRepository: CarBrandRepository) {
-    this.carBrandRepository = carBrandRepository;
+  private repository: CarBrandRepository;
+
+  constructor(repository: CarBrandRepository) {
+    this.repository = repository;
   }
+
   getAll(): Promise<CarBrand[]> {
-    return this.carBrandRepository.getAll();
+    return this.repository.getAll();
   }
+
   getById(id: string): Promise<CarBrand | null> {
-    return this.carBrandRepository.getById(id as UUID);
+    return this.repository.getById(id as UUID);
   }
 }

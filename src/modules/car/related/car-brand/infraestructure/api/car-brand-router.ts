@@ -1,9 +1,11 @@
 import { Router } from "express";
+
 import { type CarBrandController } from "./car-brand-controller";
 
 export class CarBrandRouter {
   private router: Router;
   private controller: CarBrandController;
+
   constructor(controller: CarBrandController) {
     this.controller = controller;
     this.router = Router();

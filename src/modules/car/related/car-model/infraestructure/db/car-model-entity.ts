@@ -1,6 +1,7 @@
 import { Entity, Column, ManyToOne, OneToMany } from "typeorm";
-import { CarEntity } from "@car/infraestructure/db";
+
 import { BaseModelEntity } from "@shared/infraestructure/db/base-model-entity";
+import { CarEntity } from "@car/infraestructure/db";
 import { CarBrandEntity } from "@car-brand/infraestructure/db";
 
 @Entity()

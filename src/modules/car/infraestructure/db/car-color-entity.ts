@@ -1,6 +1,7 @@
 import { Entity, Column, OneToMany } from "typeorm";
-import { CarEntity } from "@car/infraestructure/db";
+
 import { BaseModelEntity } from "@shared/infraestructure/db";
+import { CarEntity } from "@car/infraestructure/db";
 
 @Entity()
 export class CarColorEntity extends BaseModelEntity implements CarColor {
