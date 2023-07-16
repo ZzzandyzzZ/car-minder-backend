@@ -1,19 +1,23 @@
+import type { Request, Response } from "express";
+
 import { CarService } from "@car/application/car-service";
-import { Request, Response } from "express";
 
 export class CarController {
-  private carService: CarService;
-  constructor(carService: CarService) {
-    this.carService = carService;
+  private service: CarService;
+
+  constructor(service: CarService) {
+    this.service = service;
   }
+
   async getAll(_req: Request, res: Response): Promise<void> {
-    const cars = await this.carService.getAll();
+    const cars = await this.service.getAll();
     res.json({
       cars,
     });
   }
+
   async getByLP(req: Request, res: Response): Promise<void> {
-    const car = await this.carService.getByLP(req.params.licensePlate);
+    const car = await this.service.getByLP(req.params.licensePlate);
     if (!car) {
       res.status(404).json({
         message: "Car not found",
@@ -24,9 +28,10 @@ export class CarController {
       car,
     });
   }
+
   async create(req: Request, res: Response): Promise<void> {
     try {
-      const car = await this.carService.create(req.body);
+      const car = await this.service.create(req.body);
       res.json({
         message: "Car created",
         car,
