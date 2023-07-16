@@ -10,8 +10,8 @@ export class TypeORMCarBrandRepository implements CarBrandRepository {
     this.repository = AppDataSource.getRepository(CarBrandEntity);
   }
 
-  create(model: CarBrand): Promise<CarBrand> {
-    return this.repository.save(model);
+  create(carBrand: CarBrand): Promise<CarBrand> {
+    return this.repository.save(carBrand);
   }
 
   async delete(id: UUID): Promise<number> {
